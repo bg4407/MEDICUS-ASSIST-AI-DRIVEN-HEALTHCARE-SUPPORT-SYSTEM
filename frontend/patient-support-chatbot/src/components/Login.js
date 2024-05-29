@@ -19,13 +19,13 @@ function Login() {
     return (
         <div className="login-container">
             <div className="login-form">
-                <h1>Medicus Assist</h1>
+                <h1>Welcome Back</h1>
                 <form onSubmit={handleSubmit}>
                     <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required />
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
                     <button type="submit">Login</button>
+                    <p className="signup-link">Don't have an account? <a href="/signup">Sign up</a></p>
                 </form>
-                <p className="inspirational-quote">"How can we cure cancer?"</p>
             </div>
         </div>
     );

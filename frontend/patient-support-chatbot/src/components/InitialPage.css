@@ -1,0 +1,67 @@
+.initial-page {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    font-family: Arial, sans-serif; /* Consistent font */
+    overflow: hidden; /* Hide any overflow */
+}
+
+.left-side {
+    flex: 1; /* Half of the space */
+    background-color: #fef3c7; /* Light yellow background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    color: #ff8c00; /* Orange text */
+}
+
+.right-side {
+    flex: 1; /* Other half of the space */
+    background-color: #ffffff; /* White background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-title {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: bold; /* Make font bold */
+}
+
+.quote {
+    font-size: 24px;
+    margin: 20px 0;
+    font-style: italic; /* Make font italic */
+    content: open-quote; /* Add quotes around the text */
+}
+
+.get-started {
+    font-size: 20px;
+    font-weight: bold; /* Bold font for prompt */
+    margin-bottom: 20px; /* Space above buttons */
+}
+
+.initial-page button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px; /* Reduce space between buttons */
+    flex-grow: 1; /* Allows buttons to expand and fill space */
+}
+
+.initial-page button:hover {
+    background-color: #0056b3;
+}
+
+.bold {
+    font-weight: bold; /* Ensures text is bold */
+}

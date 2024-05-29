@@ -1,32 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import InitialPage from './components/InitialPage';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/')
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-      });
-  }, []);
-
-  const handleLogin = (username) => {
-    console.log(`Welcome ${username}!`);
-    setUser(username);
-  };
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        {user ? <p>Welcome {user}!</p> : <Login onLogin={handleLogin} />}
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<InitialPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
