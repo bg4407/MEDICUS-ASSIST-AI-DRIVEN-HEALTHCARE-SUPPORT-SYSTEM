@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Login from './components/Login';
 
 function App() {
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     axios.get('http://localhost:5000/')
       .then(response => {
@@ -12,10 +15,15 @@ function App() {
       });
   }, []);
 
+  const handleLogin = (username) => {
+    console.log(`Welcome ${username}!`);
+    setUser(username);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>Edit <code>src/App.js</code> and save to reload.</p>
+        {user ? <p>Welcome {user}!</p> : <Login onLogin={handleLogin} />}
       </header>
     </div>
   );
