@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/login', { username, password });
+            const response = await axios.post('http://localhost:8080/login', { username, password });
             console.log('Logged in!', response.data);
+            navigate('/chat');
         } catch (error) {
-            console.error('Failed to login', error.response.data);
+            if (error.response) {
+                console.error('Failed to login', error.response.data);
+                alert(error.response.data.error);
+            } else if (error.request) {
+                console.error('Failed to login, no response received', error.request);
+                alert("No response received from the server.");
+            } else {
+                console.error('Error', error.message);
+                alert("Error in sending request: " + error.message);
+            }
         }
     };
+    
 
     return (
         <div className="login-container">

@@ -6,11 +6,11 @@ class UserManager:
         self.db_connection = db_connection
         self.bcrypt = Bcrypt()
 
-    def create_user(self, username, email, password):
+    def create_user(self, username, password):
         cursor = self.db_connection.cursor()
         hashed_password = self.bcrypt.generate_password_hash(password).decode('utf-8')
         try:
-            cursor.execute('INSERT INTO users (username, email, password) VALUES (%s, %s, %s)', (username, email, hashed_password))
+            cursor.execute('INSERT INTO users (username, password) VALUES (%s, %s)', (username, hashed_password))
             self.db_connection.commit()
             return True
         except mysql.connector.Error as err:
