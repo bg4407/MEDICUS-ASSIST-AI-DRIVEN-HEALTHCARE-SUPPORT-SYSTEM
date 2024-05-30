@@ -1,0 +1,28 @@
+.dashboard {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    background: #fff; /* White background for the content area */
+    color: #333; /* Dark text for readability */
+  }
+  
+  .category {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .example-button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .example-button:hover {
+    background-color: #0056b3;
+  }
+  

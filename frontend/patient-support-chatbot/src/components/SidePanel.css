@@ -1,0 +1,26 @@
+.side-panel {
+    width: 300px;
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.new-chat-button, .logout-button {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.chat-item {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+}
+
+.chat-item:hover, .new-chat-button:hover, .logout-button:hover {
+    background-color: #333;
+}

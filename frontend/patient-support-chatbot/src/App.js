@@ -3,7 +3,23 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import InitialPage from './components/InitialPage';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import ChatInterface from './components/Chat';
+import ChatInterface from './components/ChatInterface';
+import SidePanel from './components/SidePanel';
+import './App.css';
+
+function ChatPage() {
+    
+    const handleSelectExample = (example) => {
+        console.log("Example selected:", example); 
+    };
+
+    return (
+        <div className="chat-page">
+            <SidePanel onSelectChat={(id) => console.log("Chat selected:", id)} />
+            <ChatInterface onSelectExample={handleSelectExample} />
+        </div>
+    );
+}
 
 function App() {
     return (
@@ -12,7 +28,7 @@ function App() {
                 <Route path="/" element={<InitialPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
-                <Route path="/chat" element={<ChatInterface />} />
+                <Route path="/chat" element={<ChatPage />} />
             </Routes>
         </Router>
     );
