@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './SidePanel.css';
+import { useNavigate } from 'react-router-dom';
 
 function SidePanel({ onSelectChat }) {
-    const [chats, setChats] = useState([]); // State to handle dynamic chats
+    const [chats, setChats] = useState([]);
+    const navigate = useNavigate();
 
     const handleNewChat = () => {
-        const newChatId = chats.length + 1; // Generate new chat ID
+        const newChatId = chats.length + 1;
         const newChat = { id: newChatId, title: `Chat ${newChatId}` };
-        setChats([...chats, newChat]); // Add new chat
-        onSelectChat(newChatId); // Select new chat
+        setChats([...chats, newChat]);
+        onSelectChat(newChatId);
     };
 
     return (
@@ -19,7 +21,7 @@ function SidePanel({ onSelectChat }) {
                     {chat.title}
                 </div>
             ))}
-            <div className="logout-button" onClick={() => {/* Add logout logic */}}>Log out</div>
+            <div className="logout-button" onClick={() => {navigate('/login');}}>Log out</div>
         </div>
     );
 }
