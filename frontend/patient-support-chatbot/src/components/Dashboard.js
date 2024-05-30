@@ -21,24 +21,29 @@ function Dashboard({ onSelectExample }) {
   };
 
   return (
-    <div className="dashboard">
-      <div className="category">
-        <h2>Scheduling</h2>
-        {categories.scheduling.map((item, index) => (
-          <button key={index} onClick={() => onSelectExample(item)} className="example-button">{item}</button>
-        ))}
-      </div>
-      <div className="category">
-        <h2>Medical Advice</h2>
-        {categories.medicalAdvice.map((item, index) => (
-          <button key={index} onClick={() => onSelectExample(item)} className="example-button">{item}</button>
-        ))}
-      </div>
-      <div className="category">
-        <h2>Medication Reminders</h2>
-        {categories.medicationReminders.map((item, index) => (
-          <button key={index} onClick={() => onSelectExample(item)} className="example-button">{item}</button>
-        ))}
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        Medicus Assist
+      </header>
+      <div className="dashboard">
+        <div className="category">
+          <div className="category-header">Scheduling</div>
+          {categories.scheduling.map((item, index) => (
+            <button key={index} onClick={() => onSelectExample(item)} className="example-button">{item}</button>
+          ))}
+        </div>
+        <div className="category">
+          <div className="category-header">Medical Advice</div>
+          {categories.medicalAdvice.map((item, index) => (
+            <button key={index} onClick={() => onSelectExample(item)} className="example-button">{item}</button>
+          ))}
+        </div>
+        <div className="category">
+          <div className="category-header">Medication Reminders</div>
+          {categories.medicationReminders.map((item, index) => (
+            <button key={index} onClick={() => onSelectExample(item)} className="example-button">{item}</button>
+          ))}
+        </div>
       </div>
     </div>
   );

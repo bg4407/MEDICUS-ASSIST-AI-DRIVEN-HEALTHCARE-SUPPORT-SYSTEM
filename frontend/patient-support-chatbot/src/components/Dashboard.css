@@ -2,14 +2,28 @@
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    background: #fff; /* White background for the content area */
-    color: #333; /* Dark text for readability */
+    background: #fff;
+    color: #333;
   }
   
+  .dashboard-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
   .category {
     flex: 1;
     margin: 10px;
   }
+
+  .category-header {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
   
   .example-button {
     display: block;

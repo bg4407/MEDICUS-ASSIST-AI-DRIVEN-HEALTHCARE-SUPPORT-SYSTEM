@@ -1,9 +1,23 @@
 .side-panel {
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     background-color: #000;
     color: #fff;
-    height: 100vh;
+}
+
+.panel-header, .panel-footer {
+    padding: 10px;
+    background-color: #000;
+}
+
+.panel-footer {
+    margin-top: auto;
+}
+
+.chat-list {
     overflow-y: auto;
+    flex-grow: 1;
 }
 
 .new-chat-button, .logout-button {

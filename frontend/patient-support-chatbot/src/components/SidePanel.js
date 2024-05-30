@@ -15,14 +15,21 @@ function SidePanel({ onSelectChat }) {
 
     return (
         <div className="side-panel">
-            <button onClick={handleNewChat} className="new-chat-button">+ New Chat</button>
-            {chats.map(chat => (
-                <div key={chat.id} className="chat-item" onClick={() => onSelectChat(chat.id)}>
-                    {chat.title}
-                </div>
-            ))}
-            <div className="logout-button" onClick={() => {navigate('/login');}}>Log out</div>
-        </div>
+            <div className="panel-header">
+                <button onClick={handleNewChat} className="new-chat-button">+ New Chat</button>
+            </div>
+            <div className="chat-list">
+                {chats.map(chat => (
+                    <div key={chat.id} className="chat-item" onClick={() => onSelectChat(chat.id)}>
+                        {chat.title}
+                    </div>
+                ))}
+            </div>
+            <div className="panel-footer">
+                <button onClick={() => navigate('/login')} className="logout-button">Log out</button>
+            </div>
+       
+            </div>
     );
 }
 

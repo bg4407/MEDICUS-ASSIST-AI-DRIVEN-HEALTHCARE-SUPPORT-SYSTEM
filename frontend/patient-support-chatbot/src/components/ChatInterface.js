@@ -2,23 +2,25 @@ import React, { useState } from 'react';
 import './ChatInterface.css';
 import Dashboard from './Dashboard';
 
-function ChatInterface({ onSelectExample }) {
+function ChatInterface() {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
 
-    const sendMessage = async () => {
-        if (!input) return;
+    const sendMessage = (message = input) => {
+        if (!message.trim()) return;
 
-        const newMessages = [...messages, { type: 'user', text: input }];
+        const newMessages = [...messages, { type: 'user', text: message }];
         setMessages(newMessages);
-
         setInput('');
+    };
+
+    const handleExampleSelect = (example) => {
+        sendMessage(example);
     };
 
     return (
         <div className="chat-interface">
-            {/* Conditionally display Dashboard */}
-            {messages.length === 0 && <Dashboard onSelectExample={onSelectExample} />}
+            {messages.length === 0 && <Dashboard onSelectExample={handleExampleSelect} />}
             <div className="messages">
                 {messages.map((msg, index) => (
                     <div key={index} className={msg.type === 'user' ? 'user-message' : 'bot-message'}>
@@ -26,8 +28,14 @@ function ChatInterface({ onSelectExample }) {
                     </div>
                 ))}
             </div>
-            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type your message..." />
-            <button onClick={sendMessage}>Send</button>
+            <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={(e) => { if (e.key === 'Enter') sendMessage(); }}
+                placeholder="Type your message..."
+            />
+            <button onClick={() => sendMessage()}>Send</button>
         </div>
     );
 }

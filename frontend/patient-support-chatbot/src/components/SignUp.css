@@ -24,7 +24,12 @@
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
+    outline: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+.signup-form input:focus {
+    outline: 1px solid #0056b3;
 }
 
 .signup-form button {
