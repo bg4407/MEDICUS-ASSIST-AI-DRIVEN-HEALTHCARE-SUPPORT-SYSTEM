@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './ChatInterface.css';
 import Dashboard from './Dashboard';
 
-function ChatInterface() {
+function ChatInterface({ onSelectExample }) {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
 
-    const sendMessage = (message = input) => {
+    const sendMessage = async (message = input) => {
         if (!message.trim()) return;
 
         const newMessages = [...messages, { type: 'user', text: message }];
         setMessages(newMessages);
         setInput('');
+
+        try {
+            const response = await axios.post('http://localhost:8080/chat', { message });
+            const botMessage = { type: 'bot', text: response.data.response };
+            setMessages([...newMessages, botMessage]);
+        } catch (error) {
+            console.error('Error communicating with the bot', error);
+        }
     };
 
     const handleExampleSelect = (example) => {
